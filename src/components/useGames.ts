@@ -18,26 +18,31 @@ export interface Game {
   interface FetchGamesResponse {
     count: number;
     results: Game[];
+
   }
   
   const useGames = () => {
     const [games, setGames] = useState<Game[]>([]);
     const [error, setError] = useState("");
+    const [isLoading , setLoading] = useState(false);
   
     useEffect(() => {
+        setLoading(true);
       const controller = new AbortController();
       apiClient
         .get<FetchGamesResponse>("/games",{signal : controller.signal })
         .then((res) => {
           setGames(res.data.results);
+          setLoading(false);
         })
         .catch((err) =>{ 
         if (err instanceof CanceledError) return ;
-        setError(err.message)
+        setError(err.message);
+        setLoading(false)
         });
         }
         ,[]);
-    return {games ,error };
+    return {games ,error ,isLoading};
   }
 
   
