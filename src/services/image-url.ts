@@ -1,6 +1,4 @@
 
-
-
 const getCroppedImageUrl = (url:string)=>{
 
     const target = 'media/';
