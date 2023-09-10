@@ -1,5 +1,5 @@
 import React from "react";
-import useGenres from "./hooks/useGenres";
+import useGenres from "../hooks/useGenres";
 import {
   Image,
   Button,
@@ -9,7 +9,7 @@ import {
   Spinner,
   Heading,
 } from "@chakra-ui/react";
-import { Genre } from "./hooks/useGenres";
+import { Genre } from "../hooks/useGenres";
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
