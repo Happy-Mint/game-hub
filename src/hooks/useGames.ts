@@ -1,4 +1,4 @@
-import { GameQuery } from './../../App';
+import { GameQuery } from '../App'
 import { Genre } from './useGenres';
 import useData from "./useData";
 import { Platform } from './usePlatForms';
